@@ -1,0 +1,7 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs
+/YunStorm.Weather.Teams.Web/bin/Debug/netcoreapp3.1
+/YunStorm.Weather.Teams.Web/obj
