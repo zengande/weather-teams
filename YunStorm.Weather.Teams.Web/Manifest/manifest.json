@@ -1,0 +1,76 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.5",
+    "version": "0.0.1",
+    "id": "65e809c2-b81a-426e-a3dc-ca7ae10c649f",
+    "packageName": "com.yunstorm.weather.teams.app",
+    "developer": {
+        "name": "yunstorm",
+        "websiteUrl": "https://3b817e6e.ngrok.io",
+        "privacyUrl": "https://3b817e6e.ngrok.io/privacy",
+        "termsOfUseUrl": "https://3b817e6e.ngrok.io/termsofuse"
+    },
+    "icons": {
+        "color": "icon-color.png",
+        "outline": "icon-outline.png"
+    },
+    "name": {
+        "short": "Weather",
+        "full": "Yunstorm Weather"
+    },
+    "description": {
+        "short": "Microsoft Teams V4 Search Messaging Extension Bot and settings",
+        "full": "Sample Search Messaging Extension Bot using V4 Bot Builder SDK and V4 Microsoft Teams Extension SDK"
+    },
+    "accentColor": "#abcdef",
+    "configurableTabs": [
+    ],
+    "staticTabs": [
+    ],
+    "bots": [
+        {
+            "botId": "90451702-8fd3-45b0-8ca1-e5975056e04f",
+            "scopes": [
+                "personal",
+                "team"
+            ],
+            "supportsFiles": false,
+            "isNotificationOnly": false
+        }
+    ],
+    "composeExtensions": [
+        {
+            "botId": "90451702-8fd3-45b0-8ca1-e5975056e04f",
+            "canUpdateConfiguration": true,
+            "commands": [
+                {
+                    "id": "searchQuery",
+                    "type": "query",
+                    "title": "Search",
+                    "description": "Search Weather",
+                    "initialRun": true,
+                    "fetchTask": false,
+                    "context": [
+                        "commandBox",
+                        "compose"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "CityName",
+                            "title": "City Name",
+                            "description": "",
+                            "inputType": "text"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "3b817e6e.ngrok.io"
+    ]
+}
