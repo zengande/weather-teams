@@ -10,6 +10,7 @@ using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using YunStorm.Weather.Teams.Web.BackgroundTasks;
 using YunStorm.Weather.Teams.Web.Bots;
 using YunStorm.Weather.Teams.Web.Services;
 
@@ -31,15 +32,19 @@ namespace YunStorm.Weather.Teams.Web
 
             services.AddSingleton<IBotFrameworkHttpAdapter, AdapterWithErrorHandler>();
 
-            services.AddHttpClient<HeWeatherClient>(client=> {
+            services.AddHttpClient<HeWeatherClient>(client =>
+            {
                 client.BaseAddress = new Uri("https://free-api.heweather.net/s6/weather/");
             });
 
             services.AddTransient<IBot, TeamsBot>();
+
+            services.AddHostedService<RealTimeWeatherForecastTask>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,  IHostApplicationLifetime lifetime)
         {
             if (env.IsDevelopment())
             {
