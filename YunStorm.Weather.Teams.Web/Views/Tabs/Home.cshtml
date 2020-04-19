@@ -5,4 +5,28 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <a href="Config">Config</a>
+    <button onclick="login()">login</button>
 </div>
+
+@section Scripts{
+    <script src="https://statics.teams.cdn.office.net/sdk/v1.6.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+    <script>
+        microsoftTeams.initialize();
+
+        function login() {
+            microsoftTeams.authentication.authenticate({
+                url: "https://bda706ae.ngrok.io/signin",
+                width: 600,
+                height: 535,
+                successCallback: function (result) {
+                    alert(JSON.stringify(result));
+                },
+                ailureCallback: function (reason) {
+                    alert(JSON.stringify(reason));
+                }
+            });
+        }
+
+    </script>
+}

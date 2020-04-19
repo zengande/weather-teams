@@ -7,9 +7,14 @@ using System.Threading.Tasks;
 
 namespace YunStorm.Weather.Teams.Web.Controllers
 {
-    [Authorize]
     public class TabsController : Controller
     {
+        [Route("config")]
+        public IActionResult Config()
+        {
+            return View();
+        }
+
         [Route("home")]
         public IActionResult Home()
         {
